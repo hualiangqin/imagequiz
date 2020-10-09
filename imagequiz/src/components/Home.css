@@ -1,0 +1,11 @@
+
+.loginButton{
+    float: left;
+}
+
+.images{
+    display: flex;
+    justify-content: space-around;
+    align-self: center;
+    text-align: center;
+}
