@@ -58,36 +58,52 @@ class Home extends React.Component{
 
                 <div className='images'>
                     <div>
-                        <img src={cherryblossom} alt="cherryblossom"></img>
-                        <label>cherryblossom</label>
+                        <Link to='/quiz1'>
+                            <img src={cherryblossom} alt="cherryblossom"></img>
+                            <label>cherryblossom</label>
+                        </Link>
                     </div>
                     <div>
-                        <img src={daffodil} alt='daffodil'></img>
-                        <label>daffodil</label>
+                        <Link to='/quiz2'>
+                            <img src={daffodil} alt='daffodil'></img>
+                            <label>daffodil</label>
+                        </Link>
                     </div>
                     <div>
-                        <img src={daisy} alt='daisy'></img>
-                        <label>daisy</label>
+                        <Link to='/quiz3'>
+                            <img src={daisy} alt='daisy'></img>
+                            <label>daisy</label>
+                        </Link>
                     </div>
                     <div>
-                        <img src={lily} alt='lily'></img>
-                        <label>lily</label>
+                        <Link to='/quiz4'>
+                            <img src={lily} alt='lily'></img>
+                            <label>lily</label>
+                        </Link>
                     </div>
                     <div>
-                        <img src={rose} alt='rose'></img>
-                        <label>rose</label>
+                        <Link to='/quiz1'>
+                            <img src={rose} alt='rose'></img>
+                            <label>rose</label>
+                        </Link>
                     </div>
                     <div>
-                        <img src={sunflower} alt='sunflower'></img>
-                        <label>sunflower</label>
+                        <Link to='/quiz2'>
+                            <img src={sunflower} alt='sunflower'></img>
+                            <label>sunflower</label>
+                        </Link>
                     </div>
                     <div>
-                        <img src={tulip} alt='tulip'></img>
-                        <label>tulip</label>
+                        <Link to='/quiz3'>
+                            <img src={tulip} alt='tulip'></img>
+                            <label>tulip</label>
+                        </Link>
                     </div>
                     <div>
-                        <img src={waterlily} alt='waterlily'></img>
-                        <label>waterlily</label>
+                        <Link to='/quiz4'>
+                            <img src={waterlily} alt='waterlily'></img>
+                            <label>waterlily</label>
+                        </Link>
                     </div>
                 </div>
                 

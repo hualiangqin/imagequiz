@@ -1,0 +1,37 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.quiz {
+    width: 80%;
+    border: black;
+    border-radius: 1em;
+    border-style: double;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.quiz > img{
+    width: 60%;
+    height: 60%;
+}
+
+.options > label {
+    background-color: tomato;
+    padding: 0.5em;
+    border-radius: 0.1in;
+}
+
+.buttons > button {
+    margin: 2em;
+}
