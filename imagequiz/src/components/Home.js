@@ -3,26 +3,42 @@ import {
     Link
   } from "react-router-dom";
 import './Home.css';
-import cherryblossom from './images/cherryblossom.png';
-import daffodil from './images/daffodil.png';
-import daisy from './images/daisy.jpg';
-import lily from './images/lily.jpg';
-import rose from './images/rose.png';
-import sunflower from './images/sunflower.png';
-import tulip from './images/tulip.png';
-import waterlily from './images/waterlily.png';
 
 class Home extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             username: "",
-            signin: false
+            signin: false,
+            quizNames: [],
+            quizImgs: [],
+            quizIds: []
         };
+    }
+
+    componentDidMount = () => {
+        let api = "https://hualiangqin-imagequiz.herokuapp.com/quizzes";
+        fetch(api).then(x => x.json()).then(y => {
+            let names = [];
+            let imgs = [];
+            let ids = [];
+            for (let i=0; i<y.length; i++){
+                names.push(y[i].name);
+                imgs.push(y[i].image);
+                ids.push(y[i].id);
+            }
+            console.log(names);
+            console.log(imgs);
+            this.setState({quizNames: names, quizImgs: imgs, quizIds: ids});
+        }).catch(e => console.log(e));
     }
     
     render(){
-
+        const {quizImgs, quizNames, quizIds, username} = this.state;
+        let quiz1 = {pathname: '/quiz', state: {id: quizIds[0], user: username}}
+        let quiz2 = {pathname: "/quiz", state: {id: quizIds[1], user: username}}
+        let quiz3 = {pathname: "/quiz", state: {id: quizIds[2], user: username}}
+        let quiz4 = {pathname: "/quiz", state: {id: quizIds[3], user: username}}
         const location = this.props.location;
         let user = '';
         if (location){
@@ -57,53 +73,29 @@ class Home extends React.Component{
                 </div>
 
                 <div className='images'>
-                    <div>
-                        <Link to='/quiz1'>
-                            <img src={cherryblossom} alt="cherryblossom"></img>
-                            <label>cherryblossom</label>
+                    <div className='img'>
+                        <Link to={quiz1}>
+                            <img src={"https://hualiangqin-imagequiz.herokuapp.com/image/" + quizImgs[0]} alt="cherryblossom"></img>
                         </Link>
+                        <label>{quizNames[0]}</label>
                     </div>
-                    <div>
-                        <Link to='/quiz2'>
-                            <img src={daffodil} alt='daffodil'></img>
-                            <label>daffodil</label>
+                    <div className='img'>
+                        <Link to={quiz2}>
+                            <img src={"https://hualiangqin-imagequiz.herokuapp.com/image/" + quizImgs[1]} alt='daffodil'></img>
                         </Link>
+                        <label>{quizNames[1]}</label>
                     </div>
-                    <div>
-                        <Link to='/quiz3'>
-                            <img src={daisy} alt='daisy'></img>
-                            <label>daisy</label>
+                    <div className='img'>
+                        <Link to={quiz3}>
+                            <img src={"https://hualiangqin-imagequiz.herokuapp.com/image/" + quizImgs[2]} alt='daisy'></img>
                         </Link>
+                        <label>{quizNames[2]}</label>
                     </div>
-                    <div>
-                        <Link to='/quiz4'>
-                            <img src={lily} alt='lily'></img>
-                            <label>lily</label>
+                    <div className='img'>
+                        <Link to={quiz4}>
+                            <img src={"https://hualiangqin-imagequiz.herokuapp.com/image/" + quizImgs[3]} alt='lily'></img>
                         </Link>
-                    </div>
-                    <div>
-                        <Link to='/quiz1'>
-                            <img src={rose} alt='rose'></img>
-                            <label>rose</label>
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to='/quiz2'>
-                            <img src={sunflower} alt='sunflower'></img>
-                            <label>sunflower</label>
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to='/quiz3'>
-                            <img src={tulip} alt='tulip'></img>
-                            <label>tulip</label>
-                        </Link>
-                    </div>
-                    <div>
-                        <Link to='/quiz4'>
-                            <img src={waterlily} alt='waterlily'></img>
-                            <label>waterlily</label>
-                        </Link>
+                        <label>{quizNames[3]}</label>
                     </div>
                 </div>
                 
